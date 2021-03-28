@@ -72,5 +72,3 @@ COPY ./src /app
 WORKDIR /app
 
 ENTRYPOINT /docker-entrypoint.sh $0 $@
-WORKDIR /app/cars_api
-CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:$PORT"]

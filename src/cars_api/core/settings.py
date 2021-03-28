@@ -25,7 +25,7 @@ SECRET_KEY = "$$0-4@+_t4uav(zw_yojxgd%_vpntn-9028u%4-5k44@wp017@"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os_env_bool(os.environ.get("DEBUG", False))
 
-ALLOWED_HOSTS = ["netgurucarsapi.herokuapp.com"]
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "netgurucarsapi.herokuapp.com"]
 
 
 # Application definition
@@ -75,7 +75,7 @@ DB_NAME = os.environ["DB_NAME"]
 DB_USERNAME = os.environ["DB_USERNAME"]
 DB_PASSWORD = os.environ["DB_PASSWORD"]
 DB_HOST = os.environ["DB_HOST"]
-DB_PORT = os.environ.get("DB_PORT", "")
+DB_PORT = os.environ.get("DB_PORT", 5432)
 
 
 DATABASES = {
