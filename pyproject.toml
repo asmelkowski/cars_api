@@ -8,11 +8,18 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.7"
 Django = "^3.1.7"
+gunicorn = "^20.0.4"
+djangorestframework = "^3.12.2"
+requests = "^2.25.1"
+psycopg2-binary = "^2.8.6"
 
 [tool.poetry.dev-dependencies]
 black = {version = "^20.8b1", allow-prereleases = true}
 isort = "^5.8.0"
 flake8 = "^3.9.0"
+ipdb = "^0.13.7"
+pytest-django = "^4.1.0"
+coverage = "^5.5"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

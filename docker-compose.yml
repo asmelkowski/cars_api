@@ -1,0 +1,39 @@
+version: "3.7"
+
+networks: 
+  cars:
+    driver: bridge
+
+services:
+  cars_api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: python cars_api/manage.py runserver 0.0.0.0:8000
+    ports: 
+      - "8000:8000"
+    volumes: 
+      - "./src:/app"
+    networks: 
+      - cars
+    environment: 
+      DB_NAME: cars_db
+      DB_USERNAME: cars_user
+      DB_PASSWORD: supersecret
+      DB_HOST: cars_db
+      DB_PORT: 5432
+      DEBUG: "true"
+    depends_on:
+      - cars_db
+
+  cars_db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: cars_db
+      POSTGRES_USER: cars_user
+      POSTGRES_PASSWORD: supersecret
+    networks: 
+      - cars
+    ports: 
+      - "5432:5432"
