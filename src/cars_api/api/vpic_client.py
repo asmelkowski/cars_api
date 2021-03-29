@@ -1,4 +1,5 @@
 import logging
+from functools import lru_cache
 from urllib.parse import urljoin
 
 import requests
@@ -33,6 +34,7 @@ class VpicClient:
         )
         return self._handle_response(response)
 
+    @lru_cache(maxsize=128)
     def get_models_for_make(self, make):
         return self._call(
             method=requests.get,

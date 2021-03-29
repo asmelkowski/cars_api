@@ -23,6 +23,8 @@ services:
       DB_HOST: cars_db
       DB_PORT: 5432
       DEBUG: "true"
+      DJANGO_SECRET_KEY: jsZ6iz9QJM#gkV^7u5gqcwoHERPCLHwJN*kkz4s4QER5vdPWyU
+      PORT: 8000
     depends_on:
       - cars_db
 
